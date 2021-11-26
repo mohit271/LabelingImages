@@ -9,6 +9,7 @@ import android.graphics.Matrix;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -60,6 +61,7 @@ public class MainActivity extends AppCompatActivity
     RecyclerView resultRv;
      SearchAdapter searchAdapter;
      String searchQuery;
+     String apiKey;
      ArrayList<SearchModel> searchModelArrayList=new ArrayList<>();
     int REQUEST_CODE=1;
     ProgressBar pb;
@@ -76,13 +78,22 @@ public class MainActivity extends AppCompatActivity
         search = findViewById(R.id.btnToSearch);
         googleSearch=findViewById(R.id.btnToGoogleSearch);
         pb=findViewById(R.id.progressBar);
+
         searchModelArrayList= new ArrayList<SearchModel>();
         searchAdapter= new SearchAdapter(this, searchModelArrayList);
         resultRv.setAdapter(searchAdapter);
 
 
-
-       // pb.setVisibility(View.INVISIBLE);
+        try {
+            ApplicationInfo applicationInfo =getApplicationContext().getPackageManager()
+                    .getApplicationInfo(getApplicationContext().getPackageName(),PackageManager.GET_META_DATA);
+            Bundle bundle=applicationInfo.metaData;
+          apiKey=bundle.getString("keyValue");
+            Log.i("APIKEY",apiKey);
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+        // pb.setVisibility(View.INVISIBLE);
 
 
         takeImage.setOnClickListener(new View.OnClickListener() {
@@ -241,7 +252,7 @@ public class MainActivity extends AppCompatActivity
 
     private void getSearchResults(String searchQuery) {
 
-        String url ="https://serpapi.com/search.json?engine=google&q="+searchQuery+"&location=Delhi%2C+India&google_domain=google.co.in&gl=in&hl=en&api_key=e8cda72b83e9fa4d5d9503ab6b968100d50f38bf7613f3497460aeb56d219dfe";
+        String url ="https://serpapi.com/search.json?engine=google&q="+searchQuery+"&location=Delhi%2C+India&google_domain=google.co.in&gl=in&hl=en&api_key="+apiKey;
         RequestQueue queue = Volley.newRequestQueue(MainActivity.this);
         JsonObjectRequest  objectRequest= new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
             @Override

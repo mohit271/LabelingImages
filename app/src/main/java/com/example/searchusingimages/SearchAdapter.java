@@ -22,8 +22,8 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
 //        this.listener = listener;
 //    }
 
-    public SearchAdapter(Context context, ArrayList<SearchModel> searchModel) {
-        this.context = context;
+   public SearchAdapter(Context context, ArrayList<SearchModel> searchModel) {
+         this.context = context;
         this.ListSearchModel = searchModel;
     }
 
