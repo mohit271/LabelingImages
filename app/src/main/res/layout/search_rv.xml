@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    android:elevation="7dp"
+    android:layout_margin="5dp"
+    app:cardCornerRadius="4dp"
+
+   >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Title"
+            android:id="@+id/tvTitle"
+            android:layout_margin="10dp"
+            android:padding="4dp"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:textColor="@color/teal_700"/>
+
+
+        <TextView
+            android:id="@+id/tvSnippet"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:maxLines="1"
+            android:padding="4dp"
+            android:text="Snippet"
+            android:textColor="#70c0db"
+            android:textSize="15sp"
+            android:textStyle="normal" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Description"
+            android:textSize="15sp"
+            android:maxLines="3"
+            android:id="@+id/tvDescription"
+            android:layout_margin="10dp"
+            android:padding="4dp"
+            android:textStyle="normal"
+            android:textColor="@color/teal_700"/>
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>
