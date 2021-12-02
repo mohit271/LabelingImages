@@ -3,10 +3,10 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-
-    android:elevation="7dp"
+    android:backgroundTint="@color/lightBlue"
+    android:elevation="15dp"
     android:layout_margin="5dp"
-    app:cardCornerRadius="4dp"
+    app:cardCornerRadius="10dp"
 
    >
     <LinearLayout
@@ -23,7 +23,7 @@
             android:layout_margin="10dp"
             android:padding="4dp"
             android:text="Title"
-            android:textColor="@color/teal_700"
+            android:textColor="@color/black"
             android:textSize="15sp"
             android:textStyle="bold" />
 
@@ -35,7 +35,7 @@
             android:maxLines="1"
             android:padding="4dp"
             android:text="Snippet"
-            android:textColor="#70c0db"
+            android:textColor="@color/black"
             android:textSize="15sp"
             android:textStyle="normal" />
 
@@ -49,7 +49,7 @@
             android:layout_margin="10dp"
             android:padding="4dp"
             android:textStyle="normal"
-            android:textColor="@color/teal_700"/>
+            android:textColor="@color/black"/>
 
     </LinearLayout>
 </androidx.cardview.widget.CardView>

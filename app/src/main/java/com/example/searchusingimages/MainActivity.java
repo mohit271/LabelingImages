@@ -72,13 +72,14 @@ public class MainActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+       // getSupportActionBar().hide();
         image = findViewById(R.id.image);
         resultRv=findViewById(R.id.recyclerView);
         takeImage = findViewById(R.id.btnToPhoto);
         search = findViewById(R.id.btnToSearch);
         googleSearch=findViewById(R.id.btnToGoogleSearch);
         pb=findViewById(R.id.progressBar);
-
         searchModelArrayList= new ArrayList<SearchModel>();
         searchAdapter= new SearchAdapter(this, searchModelArrayList);
         resultRv.setAdapter(searchAdapter);

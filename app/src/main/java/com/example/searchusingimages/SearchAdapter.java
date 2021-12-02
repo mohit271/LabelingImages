@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -42,18 +43,20 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
         holder.titleTv.setText(searchModel.getTitle());
         holder.descriptionTV.setText(searchModel.getSnippet());
         holder.snippetTv.setText(searchModel.getLink());
+        String str =searchModel.getLink();
+
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                Intent intent = new Intent(Intent.ACTION_VIEW);
+//              Intent intent = new Intent(Intent.ACTION_VIEW);
 //                intent.setData(Uri.parse(searchModel.getLink()));
 //                context.startActivity(intent);
-                String str =searchModel.getLink();
-                Intent intent = new Intent(context.getApplicationContext(), WebViewActivity.class);
-                intent.putExtra("urlLink", str);
+//                Toast.makeText(context, str, Toast.LENGTH_SHORT).show();
+                Intent i = new Intent(context.getApplicationContext(), WebViewActivity.class);
+                i.putExtra("urlLink", str);
 //
-//        // start the Intent
-      context.startActivity(intent);
+
+                 context.startActivity(i);
 
             }
         });
